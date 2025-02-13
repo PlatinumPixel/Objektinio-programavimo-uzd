@@ -3,7 +3,8 @@
 struct stud{
     string vard;
     string pava;
-    vector <int> tarp;
+    int *tarp = new int [10];
+    int size=0;
     double tarpsum=0;
     double tarpvid;
     double tarpmed;
@@ -45,15 +46,15 @@ void rankinis(vector <stud> &A){
         cin >> temp.vard >> temp.pava;
         cout << "Veskite studento namu darbo pazymius arba neskaiciu, kad daugiau pazymiu nerasyti ";
         pazymiai(temp);
-        std::sort(temp.tarp.begin(),temp.tarp.end());
+        std::sort(temp.tarp,temp.tarp+temp.size);
         cout << "Iveskite studento egzamino rezultata ";
         cin >> temp.egz;
 
-        temp.tarpvid=double(temp.tarpsum/temp.tarp.size());
-        if (temp.tarp.size()%2==0){
-            temp.tarpmed=(temp.tarp[(temp.tarp.size()/2)-1]+temp.tarp[(temp.tarp.size()/2)])/2;
+        temp.tarpvid=double(temp.tarpsum/temp.size);
+        if (temp.size%2==0){
+            temp.tarpmed=(temp.tarp[(temp.size/2)-1]+temp.tarp[(temp.size/2)])/2;
         }
-        else temp.tarpmed=temp.tarp[(temp.tarp.size()/2)];
+        else temp.tarpmed=temp.tarp[(temp.size/2)];
 
         temp.galutinisvid=(temp.tarpvid*0.4)+(temp.egz*0.6);
         temp.galutinismed=temp.tarpmed*0.4+temp.egz*0.6;
@@ -71,9 +72,12 @@ void spausdina(vector <stud> A){
 
 void pazymiai(stud &temp){
     int input;
+    int i=0;
     while (cin >> input){
-        temp.tarp.push_back(input);
+        temp.tarp[i];
         temp.tarpsum+=input;
+        i++;
+        temp.size++;
     }
     cin.clear();
     cin.ignore();
