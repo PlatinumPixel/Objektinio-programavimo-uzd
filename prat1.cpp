@@ -1,17 +1,6 @@
 #include "bibl.h"
 
-struct stud{
-    string vard;
-    string pava;
-    int n;
-    vector <int> tarp;
-    double tarpsum=0;
-    double tarpvid;
-    double tarpmed;
-    double egz;
-    double galutinisvid;
-    double galutinismed;
-};
+
 
 vector <stud> A;
 void spausdina(vector <stud> A);
@@ -132,8 +121,8 @@ void pusrankis(vector <stud> &A){
 void automatiskas (vector <stud> &A){
     stud temp;  
     int input;
-    temp.vard=Vard[rand()%5-1];
-    temp.pava=Pava[rand()%5-1];
+    temp.vard=Vard[rand()%4];
+    temp.pava=Pava[rand()%4];
 
     cout << "Iveskite studento pazymiu kieki (neskaitant egzamino) " << setw(20);
     cin >> temp.n;

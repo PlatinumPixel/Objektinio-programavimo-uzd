@@ -15,6 +15,19 @@ using std::string;
 using std::vector;
 using std::setw;
 
+struct stud{
+    string vard;
+    string pava;
+    int n;
+    vector <int> tarp;
+    double tarpsum=0;
+    double tarpvid;
+    double tarpmed;
+    double egz;
+    double galutinisvid;
+    double galutinismed;
+};
+
 string Vard[5] {"Jonas", "Vytautas", "Antanas", "Tomas", "Juozas"};
 string Pava[5] {"Kazlauskas", "Stankevicius", "Petrauskas", "Janauskas", "Zukauskas"};
 
