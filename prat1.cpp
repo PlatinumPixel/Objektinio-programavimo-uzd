@@ -1,13 +1,4 @@
-#include <iostream> 
-#include <iomanip>
-#include <vector>
-#include <algorithm>
-using std::cin; 
-using std::cout;
-using std::endl;
-using std::string;  
-using std::vector;
-using std::setw;
+#include <bibl.h>
 
 struct stud{
     string vard;
