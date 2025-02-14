@@ -100,7 +100,7 @@ void pusrankis(vector <stud> &A){
     cout << "Iveskite studento pazymiu kieki (neskaitant egzamino) " << setw(20);
     cin >> temp.n;
     for (int j=0;j<temp.n;j++){
-        int paz=rand()%10;
+        int paz=rand()%10+1;
         temp.tarp.push_back(paz);
         temp.tarpsum+=paz;
     }
@@ -127,7 +127,7 @@ void automatiskas (vector <stud> &A){
     cout << "Iveskite studento pazymiu kieki (neskaitant egzamino) " << setw(20);
     cin >> temp.n;
     for (int j=0;j<temp.n;j++){
-        int paz=rand()%10;
+        int paz=rand()%10+1;
         temp.tarp.push_back(paz);
         temp.tarpsum+=paz;
     }
