@@ -91,10 +91,10 @@ void rankinis(vector <stud> &A){
 }
 
 void spausdina(vector <stud> A){
-        cout << "Pavarde       Vardas      Galutinis(vid.) / Galutinis(med.)" << endl;
+        cout << "Pavarde            Vardas      Galutinis(vid.) / Galutinis(med.)" << endl;
         cout << "----------------------------------------------------" << endl;
     for (int i=0;i<A.size();i++){
-        cout << std::left << setw(15) << A[i].pava << setw(15) << A[i].vard  << setw(16) << A[i].galutinisvid << " " << A[i].galutinismed << endl;
+        cout << std::left << setw(20) << A[i].pava << setw(15) << A[i].vard  << setw(16) << A[i].galutinisvid << " " << A[i].galutinismed << endl;
     }
 
 }
@@ -126,8 +126,8 @@ void pusrankis(vector <stud> &A){
 void automatiskas (vector <stud> &A){
     stud temp;  
 
-    temp.vard=Vard[rand()%5-1];
-    temp.pava=Pava[rand()%5-1];
+    temp.vard=Vard[rand()%4];
+    temp.pava=Pava[rand()%4];
 
 
     for (int i=0;i<rand()%10+1;i++){
