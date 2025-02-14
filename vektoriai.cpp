@@ -85,8 +85,8 @@ void rankinis(vector <stud> &A){
         }
         else temp.tarpmed=temp.tarp[(temp.tarp.size()/2)];
 
-        temp.galutinisvid=(temp.tarpvid*0.4)+(temp.egz*0.6);
-        temp.galutinismed=temp.tarpmed*0.4+temp.egz*0.6;
+        temp.galutinisvid = ( temp.tarpvid * 0.4) + ( temp.egz * 0.6);
+        temp.galutinismed= temp.tarpmed * 0.4 + temp.egz* 0.6;
         A.push_back(temp);    
 }
 

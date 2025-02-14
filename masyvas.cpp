@@ -69,7 +69,7 @@ void rankinis(vector <stud> &A){
 
         cout << "Veskite studento namu darbo pazymius arba neskaiciu, kad daugiau pazymiu nerasyti ";
         while (cin >> input){
-            temp.tarp[temp.size];
+            temp.tarp[temp.size]=input;
             temp.tarpsum+=input;
             temp.size++;
         }
@@ -77,6 +77,11 @@ void rankinis(vector <stud> &A){
         cin.ignore();
 
         std::sort(temp.tarp,temp.tarp+temp.size);
+
+        for (int i=0;i<temp.size;i++){
+            cout << temp.tarp[i] << endl;
+        }
+
 
         cout << "Iveskite studento egzamino rezultata ";
         cin >> temp.egz;
