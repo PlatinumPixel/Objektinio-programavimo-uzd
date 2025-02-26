@@ -224,7 +224,7 @@ void failoNusk (vector <stud> &A, string failas){
         temp.galutinismed=temp.tarpmed*0.4+temp.egz*0.6;
         A.push_back(temp);
     }
-    cout << "Perskaityt ir suskaiciuot vidurkius uztruko" << t.elapsed() << endl;
+    cout << "Perskaityt ir suskaiciuot vidurkius uztruko " << t.elapsed() << endl;
     df.close();
 }
 
