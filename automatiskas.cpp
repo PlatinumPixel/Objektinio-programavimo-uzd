@@ -1,5 +1,8 @@
 #include "bibl.h"
 
+string Vard[5] {"Jonas", "Vytautas", "Antanas", "Tomas", "Juozas"};
+string Pava[5] {"Kazlauskas", "Stankevicius", "Petrauskas", "Janauskas", "Zukauskas"};
+
 void automatiskas (vector <stud> &A){
     stud temp;  
 
