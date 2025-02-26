@@ -1,19 +1,9 @@
 #include "bibl.h"
 
-struct stud{
-    string vard;
-    string pava;
-    vector <int> tarp;
-    double tarpsum=0;
-    double tarpvid;
-    double tarpmed;
-    double egz;
-    double galutinisvid;
-    double galutinismed;
-};
+string Vard[5] {"Jonas", "Vytautas", "Antanas", "Tomas", "Juozas"};
+string Pava[5] {"Kazlauskas", "Stankevicius", "Petrauskas", "Janauskas", "Zukauskas"};
 
 vector <stud> A;
-
 
 void spausdina(vector <stud> A);
 void rankinis(vector <stud> &A);
@@ -226,20 +216,4 @@ void failoNusk (vector <stud> &A, string failas){
     }
     cout << "Perskaityt ir suskaiciuot vidurkius uztruko " << t.elapsed() << endl;
     df.close();
-}
-
-bool compVardas(stud &a, stud &b){
-    return a.vard>b.vard;
-}
-
-bool compPavard(stud &a, stud &b){
-    return a.pava>b.pava;
-}
-
-bool compVid(stud &a, stud &b){
-    return a.galutinisvid>b.galutinisvid;
-}
-
-bool compMed(stud &a, stud &b){
-    return a.galutinismed>b.galutinismed;
 }
