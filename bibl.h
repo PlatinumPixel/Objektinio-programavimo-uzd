@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <ctime>
 #include <stdlib.h>
+#include <fstream>
+#include <sstream> 
 
 using std::cin; 
 using std::cout;
