@@ -191,30 +191,21 @@ void automatiskas (vector <stud> &A){
 }
 
 void failoNusk (vector <stud> &A){
-    stud temp;  
     string eil;
-    std::stringstream buffer;
-    vector <string> split;
-    int tarpkiek=-3;       //tarpiniu pažymiu kiekis
-    int paz;               //pazymio kintamasis naudojamas nuskaitymui veliau
 
-    std::ifstream df("studentai10000.txt");
-    buffer << df.rdbuf();
-    df.close();
-
-    while (buffer){ 
-        if (!buffer.eof()) {
-          std::getline(buffer, eil);
-          split.push_back(eil);}
-        else break;
-
-    }
-    for (int i=1;i<=split.size();i++){
-        std::istringstream line(split[i]);
+    Timer t;
+    std::ifstream df("studentai1000000.txt");
+    getline(df,eil);
+    while(getline(df,eil)){
+        stud temp;
+        int paz;
+        std::istringstream line(eil);
         line >> temp.vard >> temp.pava;
         while (line >> paz){
             temp.tarp.push_back(paz);
+            temp.tarpsum+=paz;
         }
+        temp.tarpsum-=temp.tarp.back();
         temp.egz=temp.tarp.back();
         temp.tarp.pop_back();
 
@@ -228,8 +219,9 @@ void failoNusk (vector <stud> &A){
         temp.galutinisvid=(temp.tarpvid*0.4)+(temp.egz*0.6);
         temp.galutinismed=temp.tarpmed*0.4+temp.egz*0.6;
         A.push_back(temp);
-        cout << split[i] << endl;
     }
+    cout << "Perskaityt ir suskaiciuot vidurkius uztruko" << t.elapsed() << endl;
+    df.close();
 }
 
 bool compVardas(stud &a, stud &b){
