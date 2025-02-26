@@ -1,6 +1,8 @@
 # ifndef STUD_H
 # define STUD_H
 
+#include "std.h"
+
 struct stud{
     string vard;
     string pava;
