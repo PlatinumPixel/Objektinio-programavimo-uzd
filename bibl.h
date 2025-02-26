@@ -1,36 +1,9 @@
 # ifndef BIBL_H
 # define BIBL_H
 
-#include <iostream> 
-#include <iomanip>
-#include <vector>
-#include <algorithm>
-#include <ctime>
-#include <stdlib.h>
-#include <fstream>
-#include <algorithm>
-#include <chrono> 
-#include <sstream> 
 
-using std::cin; 
-using std::cout;
-using std::endl;
-using std::string;  
-using std::vector;
-using std::setw;
-
-struct stud{
-  string vard;
-  string pava;
-  vector <int> tarp;
-  double tarpsum=0;
-  double tarpvid;
-  double tarpmed;
-  double egz;
-  double galutinisvid;
-  double galutinismed;
-};
-
+#include "stud.h"
+#include "std.h"
 
 class Timer {
   private:
