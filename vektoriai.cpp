@@ -19,7 +19,7 @@ void spausdina(vector <stud> A);
 void rankinis(vector <stud> &A);
 void pusrankis(vector <stud> &A);
 void automatiskas (vector <stud> &A);
-void failoNusk (vector <stud> &A);
+void failoNusk (vector <stud> &A,string failas);
 bool compVardas(stud &a, stud &b);
 bool compPavard(stud &a, stud &b);
 bool compVid(stud &a, stud &b);
@@ -28,7 +28,7 @@ bool compMed(stud &a, stud &b);
 int main(){  
     srand(time(NULL));
     char input;
-
+    string failas;
     cout << "Iveskite skaiciu kokiu budu norite ivesti duomenis " << endl;
     cout << "1 - Iveskite visus duomenis rankiniu budu " << endl;
     cout << "2 - Iveskite varda ir pavarde rankniu budu " << endl;
@@ -55,8 +55,12 @@ int main(){
                 break;
 
             case '4':
-                failoNusk(A);
+                
+                cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
+                cin >> failas;
+                failoNusk(A,failas);
                 break;
+
             case '5':
                 cout << "Pagal ka isrusiuoti duomenis?" << endl;
                 cout << "1 - Pagal Varda " << endl;
@@ -190,11 +194,11 @@ void automatiskas (vector <stud> &A){
     A.push_back(temp); 
 }
 
-void failoNusk (vector <stud> &A){
+void failoNusk (vector <stud> &A, string failas){
     string eil;
 
     Timer t;
-    std::ifstream df("studentai1000000.txt");
+    std::ifstream df(failas);
     getline(df,eil);
     while(getline(df,eil)){
         stud temp;
