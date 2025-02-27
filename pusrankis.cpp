@@ -6,12 +6,12 @@ void pusrankis(vector <stud> &A){
         cout << "Iveskite studento Varda ir pavarde ";
         cin >> temp.vard >> temp.pava;
         for (int i=0;i<rand()%10+1;i++){
-            int paz=rand()%10;
+            int paz=rand()%10+1;
             temp.tarp.push_back(paz);
             temp.tarpsum+=paz;
         }
         std::sort(temp.tarp.begin(),temp.tarp.end());
-        temp.egz=rand()%10;
+        temp.egz=rand()%10+1;
 
         temp.tarpvid=double(temp.tarpsum/temp.tarp.size());
         if (temp.tarp.size()%2==0){

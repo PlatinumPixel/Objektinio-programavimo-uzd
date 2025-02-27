@@ -7,18 +7,43 @@ void rankinis(vector <stud> &A){
         cout << "Iveskite studento Varda ir pavarde ";
         cin >> temp.vard >> temp.pava;
 
-        cout << "Veskite studento namu darbo pazymius arba neskaiciu, kad daugiau pazymiu nerasyti ";
+        cout << "Veskite studento namu darbo pazymius arba N, kad sustoti ";
         
-        while (cin >> input){
+        while (true){
+            try{
+                if (input==78) break;
+                if (!(cin>>input)||input<0 || input>10){
+                    cin.clear();
+                    cin.ignore();
+                    throw "Ivestas neteisingas simbolis";
+                }
             temp.tarp.push_back(input);
             temp.tarpsum+=input;
+            }
+            catch (char const *x){
+                cout << x << endl;
+                continue;
+            }
         }
-        cin.clear();
-        cin.ignore();
+
         std::sort(temp.tarp.begin(),temp.tarp.end());
 
         cout << "Iveskite studento egzamino rezultata ";
-        cin >> temp.egz;
+        while (true){
+            try{
+                if (!(cin>>input)||input<0 || input>10){
+                    cin.clear();
+                    cin.ignore();
+                    throw "Ivestas neteisingas simbolis";
+                }
+            temp.egz=input;
+            break;
+            }
+            catch (char const *x){
+                cout << x << endl;
+                continue;
+            }
+        }
 
         temp.tarpvid=double(temp.tarpsum/temp.tarp.size());
         if (temp.tarp.size()%2==0){
