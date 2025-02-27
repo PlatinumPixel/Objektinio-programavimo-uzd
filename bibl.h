@@ -14,6 +14,8 @@ void automatiskas (vector <stud> &);
 void compare(vector <stud> &);
 void failoNusk (vector <stud> &);
 void failoGen();
+void rusiavimas();
+void spausdinaFaila(vector <stud> A, string);
 
 bool compVardas(stud &, stud &);
 bool compPavard(stud &, stud &);

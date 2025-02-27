@@ -1,7 +1,5 @@
 #include "bibl.h"
 
-
-
 vector <stud> A;
 
 int main(){  
@@ -16,9 +14,10 @@ int main(){
         cout << "3 - Sugeneruoti visus duomenis automatiskai " << endl;
         cout << "4 - Paiimti duomenis is failo " << endl;
         cout << "5 - Sugeneruoti nauja duomenu faila " << endl;
-        cout << "6 - Baigti darba ir spausdinti " << endl;
+        cout << "6 - Surusiuoti faila i vargsiukus ir kietiakus " << endl;        
+        cout << "7 - Baigti darba ir spausdinti " << endl;
         try {
-            if (!(cin>>input)||input<1 || input>6){
+            if (!(cin>>input)||input<1 || input>7){
                 cin.clear();
                 cin.ignore();
                 throw "Ivestas neteisingas simbolis";
@@ -51,6 +50,11 @@ int main(){
                     break;
 
                 case 6:
+                    rusiavimas();
+                    break;
+
+                case 7:
+                    cout << "Pagal ka isrusiuoti duomenis?" << endl;
                     compare(A);
                     spausdina(A);
                     return 0;

@@ -17,14 +17,19 @@ void failoGen(){
     
     Timer t;
     std::stringstream eil;
-    std::ofstream rf(failas);
+
+    std::ofstream rf(failas+".txt");
+
     eil <<std::left <<setw(15)<< "Vardas"<< setw(15) << "Pavarde" ; 
     for (int i=1;i<=pazkiek;i++){
         eil  << "ND"<< setw(5) <<std::to_string(i);
     }
     eil <<  "Egz." << "\n";
+
     rf << eil.str();
+
     eil.str("");
+    
     for (int i=1;i<=kiek;i++){
         eil<<setw(15) <<"Vardas" + to_string(i) <<setw(15)<< "Pavarde" + to_string(i);
         for (int j=0;j<pazkiek;j++){

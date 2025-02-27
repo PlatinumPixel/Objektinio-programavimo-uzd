@@ -3,7 +3,6 @@
 
 void compare(vector <stud> &A){
     while(true){
-        cout << "Pagal ka isrusiuoti duomenis?" << endl;
         cout << "1 - Pagal Varda " << endl;
         cout << "2 - Pagal Pavarde " << endl;
         cout << "3 - Pagal pazymiu vidurki " << endl;
@@ -37,6 +36,7 @@ void compare(vector <stud> &A){
         catch (char const *x){
             cout << x << endl;
             continue;
+            cout << "Pagal ka isrusiuoti duomenis?" << endl;
         }
     }
 }
