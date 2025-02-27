@@ -11,7 +11,10 @@ void spausdina(vector <stud> );
 void rankinis(vector <stud> &);
 void pusrankis(vector <stud> &);
 void automatiskas (vector <stud> &);
-void failoNusk (vector <stud> &,string);
+void compare(vector <stud> &);
+void failoNusk (vector <stud> &);
+void failoGen();
+
 bool compVardas(stud &, stud &);
 bool compPavard(stud &, stud &);
 bool compVid(stud &, stud &);

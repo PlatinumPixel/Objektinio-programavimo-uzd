@@ -6,17 +6,22 @@ string Pava[5] {"Kazlauskas", "Stankevicius", "Petrauskas", "Janauskas", "Zukaus
 void automatiskas (vector <stud> &A){
     stud temp;  
 
-    temp.vard=Vard[rand()%5];
-    temp.pava=Pava[rand()%5];
+    std::random_device rd;
+    std::mt19937 mt(rd());
+    std::uniform_int_distribution<int> vardui(0,4);
+    std::uniform_int_distribution<int> pazymiui(0,10);
+
+    temp.vard=Vard[vardui(mt)];
+    temp.pava=Pava[vardui(mt)];
 
 
-    for (int i=0;i<rand()%10+1;i++){
-        int paz=rand()%10+1;
+    for (int i=0;i<pazymiui(mt);i++){
+        int paz=pazymiui(mt);
         temp.tarp.push_back(paz);
         temp.tarpsum+=paz;
     }
     std::sort(temp.tarp.begin(),temp.tarp.end());
-    temp.egz=rand()%10+1;
+    temp.egz=pazymiui(mt);
 
     temp.tarpvid=double(temp.tarpsum/temp.tarp.size());
     if (temp.tarp.size()%2==0){

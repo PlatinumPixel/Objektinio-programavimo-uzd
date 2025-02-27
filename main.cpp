@@ -15,9 +15,10 @@ int main(){
         cout << "2 - Iveskite varda ir pavarde rankniu budu " << endl;
         cout << "3 - Sugeneruoti visus duomenis automatiskai " << endl;
         cout << "4 - Paiimti duomenis is failo " << endl;
-        cout << "5 - Baigti darba ir spausdinti " << endl;
+        cout << "5 - Sugeneruoti nauja duomenu faila " << endl;
+        cout << "6 - Baigti darba ir spausdinti " << endl;
         try {
-            if (!(cin>>input)||input<1 || input>5){
+            if (!(cin>>input)||input<1 || input>6){
                 cin.clear();
                 cin.ignore();
                 throw "Ivestas neteisingas simbolis";
@@ -42,59 +43,15 @@ int main(){
                     break;
 
                 case 4:
-                    
-                    cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
-                    while(true){
-                        cin >> failas;
-                        if (!(std::filesystem::exists(failas))){
-                            cout << "Toks failas neegzistuoja, pabandykite vel" << endl;
-                            continue; 
-                        }
-                        break;
-                    }
-                    
-
-                    failoNusk(A,failas);
+                    failoNusk(A);
+                    break;
+                
+                case 5:
+                    failoGen();
                     break;
 
-                case 5:
-                    while(true){
-                        cout << "Pagal ka isrusiuoti duomenis?" << endl;
-                        cout << "1 - Pagal Varda " << endl;
-                        cout << "2 - Pagal Pavarde " << endl;
-                        cout << "3 - Pagal pazymiu vidurki " << endl;
-                        cout << "4 - Pagal pazymiu mediana " << endl;
-
-                        try {
-                            if (!(cin>>input)||input<1 || input>4){
-                                cin.clear();
-                                cin.ignore();
-                                throw "Ivestas neteisingas simbolis";
-                            }
-                            switch(input){
-                                case 1:
-                                    std::sort(A.begin(),A.end(), compVardas);
-                                    break;
-
-                                case 2:
-                                    std::sort(A.begin(),A.end(), compPavard);
-                                    break;
-
-                                case 3:
-                                    std::sort(A.begin(),A.end(), compVid);
-                                    break;
-
-                                case 4:
-                                    std::sort(A.begin(),A.end(), compMed);
-                                    break;
-                            }
-                            break;
-                        }
-                        catch (char const *x){
-                            cout << x << endl;
-                            continue;
-                        }
-                    }
+                case 6:
+                    compare(A);
                     spausdina(A);
                     return 0;
                 default:

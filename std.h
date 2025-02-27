@@ -1,5 +1,4 @@
 
-
 # ifndef STD_H
 # define STD_H
 
@@ -8,11 +7,13 @@
 #include <vector>
 #include <algorithm>
 #include <ctime>
+#include <random>
 #include <stdlib.h>
 #include <fstream>
 #include <chrono> 
 #include <sstream>
 #include <filesystem> 
+#include <string>
 
 
 using std::cin; 
@@ -21,5 +22,7 @@ using std::endl;
 using std::string;  
 using std::vector;
 using std::setw;
+using std::to_string;
+using std::setw;
 
-  # endif
+# endif

@@ -1,6 +1,18 @@
 #include "bibl.h"
 
-void failoNusk (vector <stud> &A, string failas){
+void failoNusk (vector <stud> &A){
+    string failas;
+
+    cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
+    while(true){
+        cin >> failas;
+        if (!(std::filesystem::exists(failas))){
+            cout << "Toks failas neegzistuoja, pabandykite vel" << endl;
+            continue; 
+        }
+        break;
+    }
+    
     string eil;
     Timer t;
 
