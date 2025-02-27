@@ -6,7 +6,6 @@ int main(){
     srand(time(NULL));
     int input;
     string failas;
-
     while ((true)){
         cout << "Iveskite skaiciu kokiu budu norite ivesti duomenis " << endl;
         cout << "1 - Iveskite visus duomenis rankiniu budu " << endl;

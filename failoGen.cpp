@@ -7,7 +7,8 @@ void failoGen(){
     std::random_device rd;
     std::mt19937 mt(rd());
     std::uniform_int_distribution <int> pazymiui(0,10);
-
+    Timer t;
+    
     cout << "Iveskite failo pavadinima (pvz. kursiokai)" << endl;
     cin >> failas;
     cout << "Iveskite kiek sugeneruoti studentu" << endl;
@@ -15,7 +16,7 @@ void failoGen(){
     cout << "Iveskite kiek pazymiu tures studentai (neskaiciuojant egzamino)" << endl;
     cin >> pazkiek;
     
-    Timer t;
+    t.reset();
     std::stringstream eil;
 
     std::ofstream rf(failas+".txt");
@@ -40,4 +41,5 @@ void failoGen(){
         eil.str("");
     }
     rf.close();
+    cout << "failu kurimas ir jo uzdarymas uztruko " << t.elapsed() << endl;
 }

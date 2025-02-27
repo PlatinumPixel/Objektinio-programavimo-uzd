@@ -5,6 +5,7 @@ void rusiavimas(){
     vector <stud> nuskriausti;
     vector <stud> kietiakai;
     bool vid;
+    double visaTrukme=0;
     cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
     while(true){
         cin >> failas;
@@ -45,7 +46,6 @@ void rusiavimas(){
         
     string eil;
     Timer t;
-
     std::ifstream df(failas);
     getline(df,eil);
 
@@ -76,19 +76,30 @@ void rusiavimas(){
     
         temp.galutinisvid=(temp.tarpvid*0.4)+(temp.egz*0.6);
         temp.galutinismed=temp.tarpmed*0.4+temp.egz*0.6;
+
         if (vid=1 && temp.galutinisvid<5){
             nuskriausti.push_back(temp);
         }
         else kietiakai.push_back(temp);
     }
-    cout << "Pagal ka isrusiuoti nuskriaustu duomenis?" << endl;
-    compare(nuskriausti);
-    cout << "Pagal ka isrusiuoti kietiaku duomenis?" << endl;
-    compare(kietiakai);
+    visaTrukme+=t.elapsed();
+    cout << "Duomenis nuskaityti ir mokinius isrusiuoti i atskirus konteinerius uztruko " << visaTrukme << endl;
+    double trukme=0;
+    
+    
+    cout << "Pagal ka isrikiuoti nuskriaustu duomenis?" << endl;
+    compare(nuskriausti,trukme);
+    cout << "Pagal ka isrikiuoti kietiaku duomenis?" << endl;
+    compare(kietiakai,trukme);
+    visaTrukme+=trukme;
+    cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
 
+    t.reset();
     spausdinaFaila(nuskriausti,"nuskriausti "+failas);
     spausdinaFaila(kietiakai,"kietiakai "+failas);
-
+    visaTrukme+=t.elapsed();
+    cout << "Duomenis atspausdinti uztruko "<< t.elapsed()<< endl;
+    cout << "Isviso uztruko: "<< visaTrukme<< endl;
     df.close();
 }
 

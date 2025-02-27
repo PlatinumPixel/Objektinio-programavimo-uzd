@@ -11,6 +11,7 @@ void spausdina(vector <stud> );
 void rankinis(vector <stud> &);
 void pusrankis(vector <stud> &);
 void automatiskas (vector <stud> &);
+void compare(vector <stud> &, double &);
 void compare(vector <stud> &);
 void failoNusk (vector <stud> &);
 void failoGen();
