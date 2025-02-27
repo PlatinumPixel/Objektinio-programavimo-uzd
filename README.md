@@ -15,3 +15,20 @@ Failu generavimo laiko tyrimai
 
 10000000
 ![alt text](images/image4.png)
+
+
+Nuskaitymas iš failo ir rušiavimas į grupes laiko tyrimas
+1000
+![alt text](images/image5.png)
+
+10000
+![alt text](images/image-6.png)
+
+100000
+![alt text](images/image-7.png)
+
+1000000
+![alt text](images/image-8.png)
+
+10000000
+![alt text](images/image-9.png)
