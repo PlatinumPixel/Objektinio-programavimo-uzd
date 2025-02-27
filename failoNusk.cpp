@@ -2,25 +2,31 @@
 
 void failoNusk (vector <stud> &A, string failas){
     string eil;
-
     Timer t;
+
     std::ifstream df(failas);
     getline(df,eil);
+
     while(getline(df,eil)){
         stud temp;
         int paz;
         std::istringstream line(eil);
+
         line >> temp.vard >> temp.pava;
+        
         while (line >> paz){
             temp.tarp.push_back(paz);
             temp.tarpsum+=paz;
         }
+        
         temp.tarpsum-=temp.tarp.back();
         temp.egz=temp.tarp.back();
         temp.tarp.pop_back();
 
         std::sort(temp.tarp.begin(),temp.tarp.end());
+        
         temp.tarpvid=double(temp.tarpsum/temp.tarp.size());
+        
         if (temp.tarp.size()%2==0){
             temp.tarpmed=(temp.tarp[(temp.tarp.size()/2)-1]+temp.tarp[(temp.tarp.size()/2)])/2;
         }

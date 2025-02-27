@@ -23,63 +23,83 @@ int main(){
                 throw "Ivestas neteisingas simbolis";
             } 
         
-        switch(input){
-            case 1:
-                rankinis(A);
-                break;
+            switch(input){
+                case 1:
+                    rankinis(A);
+                    break;
 
-            case 2:
-                pusrankis(A);
-                break;
+                case 2:
+                    pusrankis(A);
+                    break;
 
-            case 3:
-                int n;
-                cout << "Iveskite kiek mokiniu generuoti" << endl;
-                cin >> n;
-                for (int i=0;i<n;i++){
-                    automatiskas(A);        
-                }
-                break;
+                case 3:
+                    int n;
+                    cout << "Iveskite kiek mokiniu generuoti" << endl;
+                    cin >> n;
+                    for (int i=0;i<n;i++){
+                        automatiskas(A);        
+                    }
+                    break;
 
-            case 4:
-                
-                cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
-                cin >> failas;
-                failoNusk(A,failas);
-                break;
-
-            case 5:
-                cout << "Pagal ka isrusiuoti duomenis?" << endl;
-                cout << "1 - Pagal Varda " << endl;
-                cout << "2 - Pagal Pavarde " << endl;
-                cout << "3 - Pagal pazymiu vidurki " << endl;
-                cout << "4 - Pagal pazymiu mediana " << endl;
-
-                cin >> input;
-
-                switch(input){
-                    case 1:
-                        std::sort(A.begin(),A.end(), compVardas);
+                case 4:
+                    
+                    cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
+                    while(true){
+                        cin >> failas;
+                        if (!(std::filesystem::exists(failas))){
+                            cout << "Toks failas neegzistuoja, pabandykite vel" << endl;
+                            continue; 
+                        }
                         break;
+                    }
+                    
 
-                    case 2:
-                        std::sort(A.begin(),A.end(), compPavard);
-                        break;
+                    failoNusk(A,failas);
+                    break;
 
-                    case 3:
-                        std::sort(A.begin(),A.end(), compVid);
-                        break;
+                case 5:
+                    while(true){
+                        cout << "Pagal ka isrusiuoti duomenis?" << endl;
+                        cout << "1 - Pagal Varda " << endl;
+                        cout << "2 - Pagal Pavarde " << endl;
+                        cout << "3 - Pagal pazymiu vidurki " << endl;
+                        cout << "4 - Pagal pazymiu mediana " << endl;
 
-                    case 4:
-                        std::sort(A.begin(),A.end(), compMed);
-                        break;
-                }
+                        try {
+                            if (!(cin>>input)||input<1 || input>4){
+                                cin.clear();
+                                cin.ignore();
+                                throw "Ivestas neteisingas simbolis";
+                            }
+                            switch(input){
+                                case 1:
+                                    std::sort(A.begin(),A.end(), compVardas);
+                                    break;
 
-                spausdina(A);
-                return 0;
-            default:
-                cout << "Ivedete neteisinga simobli, pabandykit vel! :)" << endl;
-                break;
+                                case 2:
+                                    std::sort(A.begin(),A.end(), compPavard);
+                                    break;
+
+                                case 3:
+                                    std::sort(A.begin(),A.end(), compVid);
+                                    break;
+
+                                case 4:
+                                    std::sort(A.begin(),A.end(), compMed);
+                                    break;
+                            }
+                            break;
+                        }
+                        catch (char const *x){
+                            cout << x << endl;
+                            continue;
+                        }
+                    }
+                    spausdina(A);
+                    return 0;
+                default:
+                    cout << "Ivedete neteisinga simobli, pabandykit vel! :)" << endl;
+                    break;
         }
         }   
         catch (char const *x){
@@ -90,13 +110,3 @@ int main(){
     }
  return 0;
 }
-
-
-
-
-
-
-
-
-
-
