@@ -22,16 +22,16 @@ void failoGen(){
     for (int i=1;i<=pazkiek;i++){
         eil  << "ND"<< setw(5) <<std::to_string(i);
     }
-    eil <<  "Egz." << "\t";
-    cout << eil.str() << endl;
+    eil <<  "Egz." << "\n";
+    rf << eil.str();
     eil.str("");
     for (int i=1;i<=kiek;i++){
         eil<<setw(15) <<"Vardas" + to_string(i) <<setw(15)<< "Pavarde" + to_string(i);
         for (int j=0;j<pazkiek;j++){
             eil << setw(7) << pazymiui(mt); 
         }
-        eil << setw(7) << pazymiui(mt);
-        cout << eil.str() << endl;
+        eil << setw(7) << pazymiui(mt) << "\n";
+        rf << eil.str();
         eil.str("");
     }
     rf.close();
