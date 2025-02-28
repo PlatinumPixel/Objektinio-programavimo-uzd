@@ -32,3 +32,4 @@ Nuskaitymas iš failo ir rušiavimas į grupes laiko tyrimas<br>
 <br>
 10000000<br>
 ![alt text](images/image-9.png)<br>
+
