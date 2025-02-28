@@ -19,6 +19,7 @@ Failu generavimo laiko tyrimai<br>
 <br>
 Nuskaitymas iš failo ir rušiavimas į grupes laiko tyrimas<br>
 1000<br>
+
 ![alt text](images/image5.png)<br>
 <br>
 10000<br>
