@@ -92,6 +92,7 @@ void rusiavimas(){
         }
         else kietiakai.push_back(visi[i]);
     }
+    visi.clear();
 
     visaTrukme+=t.elapsed();
     cout << "Mokinius isrusiuoti i atskirus konteinerius uztruko " << t.elapsed() << endl;
