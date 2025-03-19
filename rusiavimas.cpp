@@ -2,6 +2,7 @@
 
 void rusiavimas(){
     string failas;
+    vector <stud> visi;
     vector <stud> nuskriausti;
     vector <stud> kietiakai;
     bool vid;
@@ -77,13 +78,23 @@ void rusiavimas(){
         temp.galutinisvid=(temp.tarpvid*0.4)+(temp.egz*0.6);
         temp.galutinismed=temp.tarpmed*0.4+temp.egz*0.6;
 
-        if (vid=1 && temp.galutinisvid<5){
-            nuskriausti.push_back(temp);
-        }
-        else kietiakai.push_back(temp);
+        visi.push_back(temp);
+
     }
+
     visaTrukme+=t.elapsed();
-    cout << "Duomenis nuskaityti ir mokinius isrusiuoti i atskirus konteinerius uztruko " << visaTrukme << endl;
+    cout << "Duomenis nuskaityti uztruko " << visaTrukme << endl;
+    t.reset();
+
+    for (int i=0;i<visi.size();i++){
+        if (vid=1 && visi[i].galutinisvid<5){
+            nuskriausti.push_back(visi[i]);
+        }
+        else kietiakai.push_back(visi[i]);
+    }
+
+    visaTrukme+=t.elapsed();
+    cout << "Mokinius isrusiuoti i atskirus konteinerius uztruko " << t.elapsed() << endl;
     double trukme=0;
     
     
