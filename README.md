@@ -2,6 +2,12 @@
 
 Failu generavimo laiko tyrimai<br>
 
+CPU: AMD Ryzen 7 8845, 8 Cores, 3,8 GHZ
+RAM: 16 GB, 5600 MT/s
+SSD NVMe 
+
+
+
 Vektorius <br>
 ![alt text](images/vectortest.png)<br>
 <br>
