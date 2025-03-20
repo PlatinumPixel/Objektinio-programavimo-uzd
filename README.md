@@ -2,9 +2,9 @@
 
 Failu generavimo laiko tyrimai<br>
 
-CPU: AMD Ryzen 7 8845, 8 Cores, 3,8 GHZ
-RAM: 16 GB, 5600 MT/s
-SSD NVMe 
+CPU: AMD Ryzen 7 8845, 8 Cores, 3,8 GHZ<br>
+RAM: 16 GB, 5600 MT/s<br>
+SSD NVMe <br>
 
 
 
