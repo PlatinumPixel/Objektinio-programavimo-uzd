@@ -1,20 +1,27 @@
 #include "bibl.h"
 
-void rusiavimas(){
+void TestDeque(){
     string failas;
-    vector <stud> visi;
-    vector <stud> nuskriausti;
-    vector <stud> kietiakai;
+    std::deque <stud> visi;
+    std::deque <stud> nuskriausti;
+    std::deque <stud> kietiakai;
     bool vid;
     double visaTrukme=0;
     cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
     while(true){
-        cin >> failas;
-        if (!(std::filesystem::exists(failas))){
-            cout << "Toks failas neegzistuoja, pabandykite vel" << endl;
-            continue; 
+        try{
+            cin >> failas;
+            if (!(std::filesystem::exists(failas))){
+                cin.clear();
+                cin.ignore();
+                throw "Toks failas neegzistuoja, pabandykite vel";
+            }
+            break;
         }
-        break;
+        catch (char const *x){
+            cout << x << endl;
+            continue;
+        }
     }
 
     while(true){
@@ -81,11 +88,10 @@ void rusiavimas(){
         visi.push_back(temp);
 
     }
-    df.close();
+
     visaTrukme+=t.elapsed();
     cout << "Duomenis nuskaityti uztruko " << visaTrukme << endl;
     t.reset();
-
     if (vid==1){
         for (int i=0;i<visi.size();i++){
             if (visi[i].galutinisvid<5.0){
@@ -115,12 +121,9 @@ void rusiavimas(){
     compare(kietiakai,trukme);
     visaTrukme+=trukme;
     cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
-
-    t.reset();
-    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
-    spausdinaFaila(kietiakai,"kietiakai "+failas);
-    visaTrukme+=t.elapsed();
-    cout << "Duomenis atspausdinti uztruko "<< t.elapsed()<< endl;
-    cout << "Isviso uztruko: "<< visaTrukme<< endl;  
+    //     spausdinimas del patikrinimo ar programa istikruju veikia    
+    //    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
+    //   spausdinaFaila(kietiakai,"kietiakai "+failas);
+    cout << "Isviso uztruko: "<< visaTrukme<< endl;
 }
 

@@ -1,20 +1,28 @@
 #include "bibl.h"
+#include "list"
 
-void rusiavimas(){
+void TestList(){
     string failas;
-    vector <stud> visi;
-    vector <stud> nuskriausti;
-    vector <stud> kietiakai;
+    std::list <stud> visi;
+    std::list <stud> nuskriausti;
+    std::list <stud> kietiakai;
     bool vid;
     double visaTrukme=0;
     cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
     while(true){
-        cin >> failas;
-        if (!(std::filesystem::exists(failas))){
-            cout << "Toks failas neegzistuoja, pabandykite vel" << endl;
-            continue; 
+        try{
+            cin >> failas;
+            if (!(std::filesystem::exists(failas))){
+                cin.clear();
+                cin.ignore();
+                throw "Toks failas neegzistuoja, pabandykite vel";
+            }
+            break;
         }
-        break;
+        catch (char const *x){
+            cout << x << endl;
+            continue;
+        }
     }
 
     while(true){
@@ -81,27 +89,20 @@ void rusiavimas(){
         visi.push_back(temp);
 
     }
-    df.close();
+
     visaTrukme+=t.elapsed();
     cout << "Duomenis nuskaityti uztruko " << visaTrukme << endl;
     t.reset();
 
-    if (vid==1){
-        for (int i=0;i<visi.size();i++){
-            if (visi[i].galutinisvid<5.0){
-                nuskriausti.push_back(visi[i]);
+    for (stud temp: visi){
+        if (vid==1 && temp.galutinisvid<5.0){
+            nuskriausti.push_back(temp);
+        }
+        else if(vid==0 && temp.galutinismed<5.0) {
+             nuskriausti.push_back(temp);
             }
-            else kietiakai.push_back(visi[i]); 
+            else kietiakai.push_back(temp);
         }
-    }   
-    else{ 
-        for (int i=0;i<visi.size();i++){
-            if (visi[i].galutinismed<5.0){
-                nuskriausti.push_back(visi[i]);
-            } 
-            else kietiakai.push_back(visi[i]); 
-        }
-    }
     visi.clear();
 
     visaTrukme+=t.elapsed();
@@ -116,11 +117,9 @@ void rusiavimas(){
     visaTrukme+=trukme;
     cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
 
-    t.reset();
-    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
-    spausdinaFaila(kietiakai,"kietiakai "+failas);
-    visaTrukme+=t.elapsed();
-    cout << "Duomenis atspausdinti uztruko "<< t.elapsed()<< endl;
-    cout << "Isviso uztruko: "<< visaTrukme<< endl;  
+    //     spausdinimas del patikrinimo ar programa istikruju veikia    
+    //    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
+    //    spausdinaFaila(kietiakai,"kietiakai "+failas);
+    cout << "Isviso uztruko: "<< visaTrukme<< endl;
 }
 

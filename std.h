@@ -14,6 +14,8 @@
 #include <sstream>
 #include <filesystem> 
 #include <string>
+#include <list>
+#include <deque>
 
 
 using std::cin; 

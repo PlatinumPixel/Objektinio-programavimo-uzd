@@ -66,6 +66,8 @@
         "xstddef": "cpp",
         "xtree": "cpp",
         "filesystem": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "deque": "cpp",
+        "list": "cpp"
     }
 }
