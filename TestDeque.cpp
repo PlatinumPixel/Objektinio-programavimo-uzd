@@ -92,23 +92,30 @@ void TestDeque(){
     visaTrukme+=t.elapsed();
     cout << "Duomenis nuskaityti uztruko " << visaTrukme << endl;
     t.reset();
-    if (vid==1){
-        for (int i=0;i<visi.size();i++){
-            if (visi[i].galutinisvid<5.0){
-                nuskriausti.push_back(visi[i]);
+
+    /* 1 strategija
+    for (int i=0;i<visi.size();i++){
+        if (vid==1 && visi[i].galutinisvid<5.0){
+            nuskriausti.push_back(visi[i]);
+        }
+        else if(vid==0 && visi[i].galutinismed<5.0) {
+             nuskriausti.push_back(visi[i]);
+             
             }
-            else kietiakai.push_back(visi[i]); 
+            else kietiakai.push_back(visi[i]);
         }
-    }   
-    else{ 
-        for (int i=0;i<visi.size();i++){
-            if (visi[i].galutinismed<5.0){
-                nuskriausti.push_back(visi[i]);
-            } 
-            else kietiakai.push_back(visi[i]); 
-        }
-    }
     visi.clear();
+    */
+
+     2 strategija
+    auto it = std::partition(visi.begin(), visi.end(), [](const stud &s)
+    {
+        return s.galutinisvid >= 5.0; // Keep students with an average >= 5.0
+    });
+    nuskriausti.insert(nuskriausti.end(), it, visi.end());
+    visi.erase(it, visi.end());
+    
+
 
     visaTrukme+=t.elapsed();
     cout << "Mokinius isrusiuoti i atskirus konteinerius uztruko " << t.elapsed() << endl;
@@ -122,8 +129,8 @@ void TestDeque(){
     visaTrukme+=trukme;
     cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
     //     spausdinimas del patikrinimo ar programa istikruju veikia    
-    //    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
-    //   spausdinaFaila(kietiakai,"kietiakai "+failas);
+        spausdinaFaila(nuskriausti,"nuskriausti "+failas);
+       spausdinaFaila(visi,"kietiakai "+failas);
     cout << "Isviso uztruko: "<< visaTrukme<< endl;
 }
 

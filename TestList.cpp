@@ -94,6 +94,8 @@ void TestList(){
     cout << "Duomenis nuskaityti uztruko " << visaTrukme << endl;
     t.reset();
 
+
+    /* 1 strategija
     for (stud temp: visi){
         if (vid==1 && temp.galutinisvid<5.0){
             nuskriausti.push_back(temp);
@@ -104,6 +106,28 @@ void TestList(){
             else kietiakai.push_back(temp);
         }
     visi.clear();
+    */
+
+
+
+
+    // 2 strategija
+    visi.remove_if([&](const stud &s) {
+        if (vid == 1) {
+            if (s.galutinisvid < 5.0) {
+                nuskriausti.push_back(s);
+                return true; // Remove from visi
+            }
+        } 
+        else {
+            if (s.galutinismed < 5.0) {
+                nuskriausti.push_back(s);
+                return true; // Remove from visi
+            }
+        }
+        return false; // Keep in visi
+    });
+
 
     visaTrukme+=t.elapsed();
     cout << "Mokinius isrusiuoti i atskirus konteinerius uztruko " << t.elapsed() << endl;
@@ -113,13 +137,12 @@ void TestList(){
     cout << "Pagal ka isrikiuoti nuskriaustu duomenis?" << endl;
     compare(nuskriausti,trukme);
     cout << "Pagal ka isrikiuoti kietiaku duomenis?" << endl;
-    compare(kietiakai,trukme);
+    compare(visi,trukme);
     visaTrukme+=trukme;
     cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
 
     //     spausdinimas del patikrinimo ar programa istikruju veikia    
-    //    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
-    //    spausdinaFaila(kietiakai,"kietiakai "+failas);
+       spausdinaFaila(nuskriausti,"nuskriausti "+failas);
+       spausdinaFaila(visi,"kietiakai "+failas);
     cout << "Isviso uztruko: "<< visaTrukme<< endl;
 }
-

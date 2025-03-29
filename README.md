@@ -20,3 +20,7 @@ Deque<br>
 Palyginimu grafikas<br>
 ![alt text](images/grafikas.png)<br>
 <br>
+3 strategija<br>
+![alt text](images/3strategija.png)<br>
+grafikas <br>
+![alt text](images/VecGrafikas.png)

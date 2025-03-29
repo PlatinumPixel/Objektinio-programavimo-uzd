@@ -1,11 +1,16 @@
 #include "bibl.h"
+#include <algorithm>
+#include <iterator>
+
+bool vid;
+
 
 void TestVector(){
     string failas;
     vector <stud> visi;
     vector <stud> nuskriausti;
     vector <stud> kietiakai;
-    bool vid;
+    
     double visaTrukme=0;
     cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
     while(true){
@@ -93,6 +98,8 @@ void TestVector(){
     cout << "Duomenis nuskaityti uztruko " << visaTrukme << endl;
     t.reset();
 
+
+    /* 1 strategija
     for (int i=0;i<visi.size();i++){
         if (vid==1 && visi[i].galutinisvid<5.0){
             nuskriausti.push_back(visi[i]);
@@ -104,22 +111,46 @@ void TestVector(){
             else kietiakai.push_back(visi[i]);
         }
     visi.clear();
+    */
 
+    
+    /* 2 strategija
+    auto it = std::partition(visi.begin(), visi.end(), [](const stud &s)
+    {
+        return s.galutinisvid >= 5.0; // Keep students with an average >= 5.0
+    });
+    nuskriausti.insert(nuskriausti.end(), it, visi.end());
+    visi.erase(it, visi.end());
+    */
+
+    std::remove_copy_if(visi.begin(), visi.end(), std::back_inserter(nuskriausti), [](const stud &s) {
+        return s.galutinisvid >= 5.0;
+    });
+
+    visi.erase(std::remove_if(visi.begin(), visi.end(), [](const stud &s) {
+        return s.galutinisvid < 5.0;
+    }), visi.end());
+    
     visaTrukme+=t.elapsed();
     cout << "Mokinius isrusiuoti i atskirus konteinerius uztruko " << t.elapsed() << endl;
+    
+
     double trukme=0;
-    
-    
-    cout << "Pagal ka isrikiuoti nuskriaustu duomenis?" << endl;
+    cout << "Pagal ka isrikiuoti kietiaku duomenis?" << endl;
     compare(nuskriausti,trukme);
     cout << "Pagal ka isrikiuoti kietiaku duomenis?" << endl;
-    compare(kietiakai,trukme);
+    compare(visi,trukme);
     visaTrukme+=trukme;
     cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
+    t.reset();
+
+    //visi.shrink_to_fit();
+
+
+
     //     spausdinimas del patikrinimo ar programa istikruju veikia    
     //    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
-    //    spausdinaFaila(kietiakai,"kietiakai "+failas);
+    //  spausdinaFaila(visi,"kietiakai "+failas);
     cout << "Isviso uztruko: "<< visaTrukme<< endl;
 
 }
-
