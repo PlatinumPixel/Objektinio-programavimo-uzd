@@ -107,7 +107,7 @@ void TestDeque(){
     visi.clear();
     */
 
-     2 strategija
+    // 2 strategija
     auto it = std::partition(visi.begin(), visi.end(), [](const stud &s)
     {
         return s.galutinisvid >= 5.0; // Keep students with an average >= 5.0

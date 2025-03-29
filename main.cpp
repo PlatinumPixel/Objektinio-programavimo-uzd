@@ -3,7 +3,6 @@
 vector <stud> A;
 
 int main(){  
-    srand(time(NULL));
     int input;
     string failas;
     while ((true)){

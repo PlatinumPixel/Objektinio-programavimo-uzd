@@ -1,5 +1,9 @@
 # Objektinio-programavimo-uzd
 
+Ši programa del skirtingu konteineriu laikų testavimų naudojant struktūras
+Kad paleist programa reikia tik paleisti run.bat faila
+
+
 Failu generavimo laiko tyrimai<br>
 
 CPU: AMD Ryzen 7 8845, 8 Cores, 3,8 GHZ<br>
