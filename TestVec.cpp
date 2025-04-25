@@ -9,14 +9,14 @@ void TestVector(){
     string failas;
     vector <stud> visi;
     vector <stud> nuskriausti;
-    vector <stud> kietiakai;
+    
     
     double visaTrukme=0;
     cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
     while(true){
         try{
             cin >> failas;
-            if (!(std::filesystem::exists(failas))){
+            if (!(std::filesystem::exists("../../"+failas))){
                 cin.clear();
                 cin.ignore();
                 throw "Toks failas neegzistuoja, pabandykite vel";
@@ -59,7 +59,7 @@ void TestVector(){
         
     string eil;
     Timer t;
-    std::ifstream df(failas);
+    std::ifstream df("../../"+failas);
     getline(df,eil);
 
     while(getline(df,eil)){
@@ -100,6 +100,7 @@ void TestVector(){
 
 
     /* 1 strategija
+    vector <stud> kietiakai;
     for (int i=0;i<visi.size();i++){
         if (vid==1 && visi[i].galutinisvid<5.0){
             nuskriausti.push_back(visi[i]);
@@ -114,23 +115,26 @@ void TestVector(){
     */
 
     
-    /* 2 strategija
-    auto it = std::partition(visi.begin(), visi.end(), [](const stud &s)
-    {
-        return s.galutinisvid >= 5.0; // Keep students with an average >= 5.0
-    });
-    nuskriausti.insert(nuskriausti.end(), it, visi.end());
-    visi.erase(it, visi.end());
-    */
-
-    std::remove_copy_if(visi.begin(), visi.end(), std::back_inserter(nuskriausti), [](const stud &s) {
-        return s.galutinisvid >= 5.0;
-    });
-
-    visi.erase(std::remove_if(visi.begin(), visi.end(), [](const stud &s) {
-        return s.galutinisvid < 5.0;
-    }), visi.end());
-    
+    // 2/3 strategija
+    if (vid==1){   
+        auto it = std::partition(visi.begin(), visi.end(), [](const stud &s)
+        {
+            return s.galutinisvid >= 5.0; //
+        });
+        nuskriausti.insert(nuskriausti.end(), it, visi.end());
+        visi.erase(it, visi.end());
+        visi.shrink_to_fit();
+    }
+    else if(vid==0){
+        auto it = std::partition(visi.begin(), visi.end(), [](const stud &s)
+        {
+            return s.galutinismed >= 5.0; //
+        });
+        nuskriausti.insert(nuskriausti.end(), it, visi.end());
+        visi.erase(it, visi.end());
+        visi.shrink_to_fit();
+    }
+ 
     visaTrukme+=t.elapsed();
     cout << "Mokinius isrusiuoti i atskirus konteinerius uztruko " << t.elapsed() << endl;
     
@@ -144,13 +148,9 @@ void TestVector(){
     cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
     t.reset();
 
-    //visi.shrink_to_fit();
-
-
-
     //     spausdinimas del patikrinimo ar programa istikruju veikia    
-    //    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
-    //  spausdinaFaila(visi,"kietiakai "+failas);
+    //    spausdinaFaila(nuskriausti,"../../nuskriausti "+failas);
+    //    spausdinaFaila(visi,"../../kietiakai "+failas);
     cout << "Isviso uztruko: "<< visaTrukme<< endl;
 
 }

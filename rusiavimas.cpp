@@ -10,7 +10,7 @@ void rusiavimas(){
     cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
     while(true){
         cin >> failas;
-        if (!(std::filesystem::exists(failas))){
+        if (!(std::filesystem::exists("../../"+failas))){
             cout << "Toks failas neegzistuoja, pabandykite vel" << endl;
             continue; 
         }
@@ -47,7 +47,7 @@ void rusiavimas(){
         
     string eil;
     Timer t;
-    std::ifstream df(failas);
+    std::ifstream df("../../"+failas);
     getline(df,eil);
 
     while(getline(df,eil)){
@@ -117,8 +117,8 @@ void rusiavimas(){
     cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
 
     t.reset();
-    spausdinaFaila(nuskriausti,"nuskriausti "+failas);
-    spausdinaFaila(kietiakai,"kietiakai "+failas);
+    spausdinaFaila(nuskriausti,"../../nuskriausti "+failas);
+    spausdinaFaila(kietiakai,"../../kietiakai "+failas);
     visaTrukme+=t.elapsed();
     cout << "Duomenis atspausdinti uztruko "<< t.elapsed()<< endl;
     cout << "Isviso uztruko: "<< visaTrukme<< endl;  

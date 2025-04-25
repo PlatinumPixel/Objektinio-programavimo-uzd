@@ -10,10 +10,16 @@
 *.userosscache  
 *.sln.docstates
 /build
-/.vscode
+.vscode
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+1000.txt
+10000.txt
+100000.txt
+1000000.txt
+10000000.txt
+
 
 # Mono auto generated files
 mono_crash.*
@@ -400,3 +406,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/.vscode
+/.vscode

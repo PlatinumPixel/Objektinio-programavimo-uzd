@@ -6,7 +6,7 @@ void failoNusk (vector <stud> &A){
     cout << "Iveskite failo pavadinima (pvz. kursiokai.txt)" << endl;
     while(true){
         cin >> failas;
-        if (!(std::filesystem::exists(failas))){
+        if (!(std::filesystem::exists("../../"+failas))){
             cout << "Toks failas neegzistuoja, pabandykite vel" << endl;
             continue; 
         }
@@ -16,7 +16,7 @@ void failoNusk (vector <stud> &A){
     string eil;
     Timer t;
 
-    std::ifstream df(failas);
+    std::ifstream df("../../"+failas);
     getline(df,eil);
 
     while(getline(df,eil)){

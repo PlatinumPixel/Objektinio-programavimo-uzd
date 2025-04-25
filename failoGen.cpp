@@ -19,7 +19,7 @@ void failoGen(){
     t.reset();
     std::stringstream eil;
 
-    std::ofstream rf(failas+".txt");
+    std::ofstream rf("../../"+failas+".txt");
 
     eil <<std::left <<setw(15)<< "Vardas"<< setw(15) << "Pavarde" ; 
     for (int i=1;i<=pazkiek;i++){

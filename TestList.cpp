@@ -12,7 +12,7 @@ void TestList(){
     while(true){
         try{
             cin >> failas;
-            if (!(std::filesystem::exists(failas))){
+            if (!(std::filesystem::exists("../../"+failas))){
                 cin.clear();
                 cin.ignore();
                 throw "Toks failas neegzistuoja, pabandykite vel";
@@ -55,7 +55,7 @@ void TestList(){
         
     string eil;
     Timer t;
-    std::ifstream df(failas);
+    std::ifstream df("../../"+failas);
     getline(df,eil);
 
     while(getline(df,eil)){
@@ -142,7 +142,7 @@ void TestList(){
     cout << "Duomenis isrikiuoti uztruko " << trukme << endl;
 
     //     spausdinimas del patikrinimo ar programa istikruju veikia    
-       spausdinaFaila(nuskriausti,"nuskriausti "+failas);
-       spausdinaFaila(visi,"kietiakai "+failas);
+    //   spausdinaFaila(nuskriausti,"../../nuskriausti "+failas);
+    //   spausdinaFaila(visi,"../../kietiakai"+failas);
     cout << "Isviso uztruko: "<< visaTrukme<< endl;
 }
