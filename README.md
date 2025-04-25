@@ -59,6 +59,8 @@ Palyginimu grafikas<br>
 | 1000000  | 2.78892     | 0.23501      | 1.21401      | 4.23781 |
 | 10000000 | 28.0751     | 2.64859      | 14.3452      | 45.0688 |
 | 10000000 | 27.5075     | 5.60373      | 6.62819      | 39.7394 |
-grafikas <br>
+<br>
+
+grafikas<br> 
 
 ![alt text](images/VecGrafikas.png)
